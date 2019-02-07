@@ -3,12 +3,16 @@ class ArticlesController < ApplicationController
 	before_filter :require_login, only: [:new, :create, :edit, :update]
      def index
           @articles = Article.all
+
+	  @popular = Article.order(:view_count).last(3);
      end
 
      def show
 	  @article = Article.find(params[:id])
       	  @comment = Comment.new
-          @comment.article_id = @article_id	  
+          @comment.article_id = @article_id
+	  @article.view_count = @article.view_count.to_i + 1
+	  @article.save
      end
 
      def new

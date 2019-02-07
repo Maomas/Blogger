@@ -14,9 +14,15 @@
 <h3>Comments (<%= @article.comments.size  %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 
+<hr>
 <p>
   Tags:
   <% @article.tags.each do |tag| %>
 	  <%= link_to tag.name, tag_path(tag) %>
   <% end %>
+</p>
+
+<p>
+  View Count :
+  <%= @article.view_count %>
 </p>

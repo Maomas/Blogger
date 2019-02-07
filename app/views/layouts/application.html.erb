@@ -9,6 +9,11 @@
 <body>
 	<p class="flash"><%= flash.notice %><p>
 	<div id="container">
+		<div id="navbar">
+			<%= link_to "Articles", articles_path %>
+			<%= link_to "Authors", authors_path %>
+			<%= link_to "Tags", tags_path %>
+		</div>
 		<div id="content">
 			<%= yield %>
 			<hr>
